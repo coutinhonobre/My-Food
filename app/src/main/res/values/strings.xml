@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">My Food</string>
+    <string name="hello">Hello,</string>
+    <string name="igor_nobre">Igor Nobre</string>
+    <string name="favoritos">Favoritos</string>
+    <string name="categorias">Categorias</string>
+    <string name="nome_alimento">Nome Alimento</string>
+</resources>
