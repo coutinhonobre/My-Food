@@ -6,8 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 
 import com.github.coutinhonobre.myfood.R
+import kotlinx.android.synthetic.main.detail_fragment.*
 
 class DetailFragment : Fragment() {
 
@@ -27,7 +29,11 @@ class DetailFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(DetailViewModel::class.java)
-        // TODO: Use the ViewModel
+
+
+        imageViewDetailClose.setOnClickListener {
+            findNavController().navigate(R.id.action_detailFragment_to_homeFragment)
+        }
     }
 
 }
