@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -15,11 +15,89 @@
             android:id="@+id/imageViewDetailClose"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_close_black_24dp"
+            android:contentDescription="@string/close"
+            android:src="@drawable/ic_close_24dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageViewDetailReceita"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxHeight="350dp"
+            android:layout_marginTop="10dp"
+            android:contentDescription="@string/receita"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewDetailClose"
+            tools:src="@tools:sample/avatars[3]" />
+
+        <TextView
+            android:id="@+id/txtViewDetailReceita"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/colorClara"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewDetailReceita"
+            tools:text="@string/receita" />
+
+        <RatingBar
+            android:id="@+id/ratingBarViewDetailReceita"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:saveEnabled="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtViewDetailReceita" />
+
+        <TextView
+            android:id="@+id/txtViewDetailIngredientesDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/colorClara"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ratingBarViewDetailReceita"
+            android:text="@string/ingredientes" />
+
+        <TextView
+            android:id="@+id/txtViewDetailIngredientes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtViewDetailIngredientesDescription"
+            tools:text="Exemplo de ingredientes\n linha de baixo" />
+
+
+        <TextView
+            android:id="@+id/txtViewDetailModoDePreparoDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/colorClara"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtViewDetailIngredientes"
+            android:text="@string/modo_de_preparo" />
+
+        <TextView
+            android:id="@+id/txtViewDetailModoDePreparo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtViewDetailModoDePreparoDescription"
+            tools:text="Exemplo do modo de preparo\n linha de baixo" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</FrameLayout>
+</ScrollView>

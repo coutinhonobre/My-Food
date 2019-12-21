@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/imageViewItemReceitasFavoritoComida"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:contentDescription="@string/nome_alimento"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars[2]" />
+
+    <TextView
+        android:id="@+id/textViewItemReceitasFavoritoNomeComida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/imageViewItemReceitasFavoritoComida"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Pizza de Calabresa" />
+
+    <RatingBar
+        android:id="@+id/ratingBarItemReceitasFavoritoPontuacao"
+        style="@style/Widget.AppCompat.RatingBar.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:numStars="5"
+        android:saveEnabled="true"
+        app:layout_constraintStart_toEndOf="@+id/imageViewItemReceitasFavoritoComida"
+        app:layout_constraintTop_toBottomOf="@+id/textViewItemReceitasFavoritoNomeComida" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
