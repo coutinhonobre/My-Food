@@ -13,4 +13,7 @@
     <string name="cadastrar">Cadastrar</string>
     <string name="login">login</string>
     <string name="ja_tenho_cadastro">Já tenho cadastro</string>
+    <string name="username">Username</string>
+    <string name="senha">Senha</string>
+    <string name="nome">Nome</string>
 </resources>

@@ -6,10 +6,10 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="ButtonLogin" parent="Widget.MaterialComponents.Button">
-        <item name="android:textColor">@color/colorWhite</item>
-        <item name="android:colorButtonNormal">@color/colorPrimary</item>
-        <item name="backgroundTint">@color/colorPrimary</item>
+    <style name="LogoName">
+        <item name="android:layout_marginTop">150dp</item>
+        <item name="android:textColor">@color/colorClara</item>
+        <item name="android:textSize">64sp</item>
     </style>
 
 

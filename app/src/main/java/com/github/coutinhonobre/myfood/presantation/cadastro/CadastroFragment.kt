@@ -6,14 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 
 import com.github.coutinhonobre.myfood.R
+import kotlinx.android.synthetic.main.cadastro_fragment.*
 
 class CadastroFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = CadastroFragment()
-    }
 
     private lateinit var viewModel: CadastroViewModel
 
@@ -27,7 +26,13 @@ class CadastroFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(CadastroViewModel::class.java)
-        // TODO: Use the ViewModel
+
+        textViewCadastroLogin.setOnClickListener {
+            findNavController().navigate(R.id.action_cadastroFragment_to_loginFragment)
+        }
+
+
+
     }
 
 }
