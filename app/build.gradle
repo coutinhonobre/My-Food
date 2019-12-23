@@ -53,4 +53,5 @@ dependencies {
 
     // Coil
     implementation("io.coil-kt:coil:0.8.0")
+    implementation 'com.google.android.material:material:1.2.0-alpha03'
 }
