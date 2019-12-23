@@ -7,5 +7,6 @@ data class Receita(
     val modoPreparo: String,
     val linkImagem: String,
     val rating: Float,
+    val like: Boolean,
     val categorias: List<Categoria>
 )

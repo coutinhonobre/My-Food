@@ -23,6 +23,7 @@ class DetailViewModel : ViewModel() {
             "como preparar",
             "https://www.eucomosim.com/wp-content/uploads/2014/10/fc48ho050-02_xlg-e1412761851676-216x160.jpg",
             3.6F,
+            false,
             listOf(categoria)
         )
 
