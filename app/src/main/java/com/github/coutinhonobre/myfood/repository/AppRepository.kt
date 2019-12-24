@@ -24,6 +24,14 @@ class AppRepository(val context: Context) {
 
     fun getAllReceitas() = database.Dao().getAllLiveReceitas()
 
+    fun getAllLiveReceitasID(id: Long) = database.Dao().getAllLiveReceitasID(id)
+
+    fun updateReceita(receita: Receita){
+        doAsync {
+            database.Dao().updateReceita(receita)
+        }
+    }
+
     fun getAllReceitasLike() = database.Dao().getAllLiveReceitasLike(true)
 
     fun getAllReceitasPorCategoria(categoriaId: Long) =

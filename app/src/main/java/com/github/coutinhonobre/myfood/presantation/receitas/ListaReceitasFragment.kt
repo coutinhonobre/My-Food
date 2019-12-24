@@ -43,7 +43,10 @@ class ListaReceitasFragment : Fragment() {
 
         viewModel.getReceitasCategoria(categoria).observe(this, Observer {
             recyclerViewLayoutListaReceitasPesquisa.adapter = ReceitasAdapter(it){ receita ->
-                findNavController().navigate(R.id.action_listaReceitasFragment_to_detailFragment)
+                val bundle = Bundle().apply {
+                    putLong("id", receita.id)
+                }
+                findNavController().navigate(R.id.action_listaReceitasFragment_to_detailFragment, bundle)
             }
         })
 

@@ -18,9 +18,9 @@ data class Receita(
     @ColumnInfo(name = "link_imagem")
     val linkImagem: String,
     @ColumnInfo(name = "rating")
-    val rating: Float,
+    var rating: Float,
     @ColumnInfo(name = "like")
-    val like: Boolean,
+    var like: Boolean,
     @ColumnInfo(name = "categoria_id")
     val categoriaId: Long
 )

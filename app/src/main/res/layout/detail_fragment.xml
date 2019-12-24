@@ -22,9 +22,8 @@
 
         <ImageView
             android:id="@+id/imageViewDetailReceita"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:maxHeight="350dp"
+            android:layout_width="350dp"
+            android:layout_height="350dp"
             android:layout_marginTop="10dp"
             android:contentDescription="@string/receita"
             app:layout_constraintStart_toStartOf="parent"
@@ -56,13 +55,13 @@
             android:id="@+id/txtViewDetailIngredientesDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:text="@string/ingredientes"
+            android:layout_marginTop="5dp"
             android:textColor="@color/colorClara"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ratingBarViewDetailReceita"
-            android:text="@string/ingredientes" />
+            app:layout_constraintTop_toBottomOf="@+id/switchDetailModoDePreparo" />
 
         <TextView
             android:id="@+id/txtViewDetailIngredientes"
@@ -96,6 +95,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtViewDetailModoDePreparoDescription"
             tools:text="Exemplo do modo de preparo\n linha de baixo" />
+
+        <Switch
+            android:id="@+id/switchDetailModoDePreparo"
+            android:textColor="@color/colorClara"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/favorito"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ratingBarViewDetailReceita" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
