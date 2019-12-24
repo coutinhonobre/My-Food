@@ -17,4 +17,6 @@
     <string name="senha">Senha</string>
     <string name="nome">Nome</string>
     <string name="favorito">Favorito</string>
+    <string name="cadastrado_realizado_com_sucesso">Cadastro realizado com sucesso!</string>
+    <string name="usuario_ou_senha_incorretos">Usuario ou senha incorreta</string>
 </resources>

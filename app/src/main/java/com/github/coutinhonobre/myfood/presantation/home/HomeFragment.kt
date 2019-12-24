@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,6 +18,7 @@ import kotlinx.android.synthetic.main.home_fragment.*
 
 class HomeFragment : Fragment() {
 
+    private var idUsuario: Long = 0
 
     private lateinit var viewModel: HomeViewModel
 
@@ -26,6 +26,9 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        idUsuario = arguments?.getLong("id", 0)!!
+
         return inflater.inflate(R.layout.home_fragment, container, false)
     }
 
@@ -33,9 +36,18 @@ class HomeFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
 
+        textViewHomeNome.text = ";)"
 
         getFavoritos()
         getCategorias()
+
+        viewModel.getUsuario(idUsuario).observe(this, Observer {
+            it.let {
+                if (it.isNotEmpty()){
+                    textViewHomeNome.text = "${it[0].nome} ;)"
+                }
+            }
+        })
 
     }
 
@@ -45,7 +57,11 @@ class HomeFragment : Fragment() {
         viewModel.getReceitasFavoritas().observe(this, Observer {
             recyViewHomeFavoritos.adapter = HomeFavoritosAdapter(it) { receita ->
                 Log.i("RECEITA", receita.receita)
-                findNavController().navigate(R.id.action_homeFragment_to_detailFragment)
+                val bundle = Bundle().apply {
+                    putLong("id", receita.id)
+                    putLong("idUsuario", idUsuario)
+                }
+                findNavController().navigate(R.id.action_homeFragment_to_detailFragment, bundle)
             }
         })
     }
@@ -57,6 +73,7 @@ class HomeFragment : Fragment() {
             recyViewHomeCategorias.adapter = HomeCategoriasAdapter(it) { categoria ->
                 val bundle = Bundle().apply {
                     putLong("id", categoria.id)
+                    putLong("idUsuario", idUsuario)
                 }
                 findNavController().navigate(
                     R.id.action_homeFragment_to_listaReceitasFragment,

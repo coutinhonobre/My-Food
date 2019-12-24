@@ -25,5 +25,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
     fun getCategorias() = appRepository.getAllCategorias()
 
+    fun getUsuario(usuario: Long) = appRepository.getAllLiveChecarUsuarioID(usuario)
+
 
 }

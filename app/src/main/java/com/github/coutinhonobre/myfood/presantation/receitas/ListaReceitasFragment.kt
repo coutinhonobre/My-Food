@@ -20,6 +20,7 @@ import kotlinx.android.synthetic.main.lista_receitas_fragment.*
 class ListaReceitasFragment : Fragment() {
 
     private var categoria: Long = 0
+    private var idUsuario: Long = 0
 
 
     private lateinit var viewModel: ListaReceitasViewModel
@@ -30,6 +31,7 @@ class ListaReceitasFragment : Fragment() {
     ): View? {
 
         categoria = arguments?.getLong("id")!!
+        idUsuario = arguments?.getLong("idUsuario")!!
 
 
         return inflater.inflate(R.layout.lista_receitas_fragment, container, false)
@@ -45,6 +47,7 @@ class ListaReceitasFragment : Fragment() {
             recyclerViewLayoutListaReceitasPesquisa.adapter = ReceitasAdapter(it){ receita ->
                 val bundle = Bundle().apply {
                     putLong("id", receita.id)
+                    putLong("idUsuario", idUsuario)
                 }
                 findNavController().navigate(R.id.action_listaReceitasFragment_to_detailFragment, bundle)
             }
@@ -55,7 +58,10 @@ class ListaReceitasFragment : Fragment() {
 
 
         imageViewListaReceitasReturn.setOnClickListener {
-            findNavController().navigate(R.id.action_listaReceitasFragment_to_homeFragment)
+            val bundle = Bundle().apply {
+                putLong("id", idUsuario)
+            }
+            findNavController().navigate(R.id.action_listaReceitasFragment_to_homeFragment, bundle)
         }
 
         textEditTextListaReceitasPesquisa.addTextChangedListener {

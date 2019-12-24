@@ -20,6 +20,7 @@ class DetailFragment : Fragment() {
 
 
     private var receita: Long = 0
+    private var idUsuario: Long = 0
 
     private lateinit var receitaObj: Receita
 
@@ -32,6 +33,7 @@ class DetailFragment : Fragment() {
     ): View? {
 
         receita = arguments?.getLong("id")!!
+        idUsuario = arguments?.getLong("idUsuario")!!
         return inflater.inflate(R.layout.detail_fragment, container, false)
     }
 
@@ -41,19 +43,29 @@ class DetailFragment : Fragment() {
 
         viewModel.getReceitaCategoria(receita).observe(this, Observer {
             it.let {
-                it
-                txtViewDetailReceita.text = it[0].receita
-                ratingBarViewDetailReceita.rating = it[0].rating
-                txtViewDetailIngredientes.text = it[0].ingredientes
-                txtViewDetailModoDePreparo.text = it[0].modoPreparo
+                if (it.isNotEmpty()) {
+                    txtViewDetailReceita.text = it[0].receita
+                    txtViewDetailIngredientes.text = it[0].ingredientes
+                    txtViewDetailModoDePreparo.text = it[0].modoPreparo
 
-                switchDetailModoDePreparo.isChecked = it[0].like
+                    try {
+                        ratingBarViewDetailReceita.rating = it[0].rating
+                    } catch (e: Exception) {
+                        Log.e("RATING", e.message)
+                    }
 
-                receitaObj = it[0]
+                    try {
+                        switchDetailModoDePreparo.isChecked = it[0].like
+                    } catch (e: Exception) {
+                        Log.e("LIKE", e.message)
+                    }
 
-                imageViewDetailReceita.load(it[0].linkImagem) {
-                    crossfade(true)
-                    crossfade(1000)
+                    receitaObj = it[0]
+
+                    imageViewDetailReceita.load(it[0].linkImagem) {
+                        crossfade(true)
+                        crossfade(1000)
+                    }
                 }
             }
 
@@ -74,7 +86,10 @@ class DetailFragment : Fragment() {
 
 
         imageViewDetailClose.setOnClickListener {
-            findNavController().navigate(R.id.action_detailFragment_to_homeFragment)
+            val bundle = Bundle().apply {
+                putLong("id", idUsuario)
+            }
+            findNavController().navigate(R.id.action_detailFragment_to_homeFragment, bundle)
         }
     }
 

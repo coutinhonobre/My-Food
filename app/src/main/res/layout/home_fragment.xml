@@ -32,11 +32,35 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="@string/igor_nobre"
+                tools:text="@string/igor_nobre"
                 android:textSize="28sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewHomeHello" />
+
+
+
+            <TextView
+                android:id="@+id/textViewHomeCategorias"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/categorias"
+                android:textColor="@color/colorClara"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewHomeNome" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyViewHomeCategorias"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewHomeCategorias"
+                tools:listitem="@layout/item_home_categorias"
+                tools:itemCount="50"/>
 
             <TextView
                 android:id="@+id/textViewHomeFavoritos"
@@ -48,7 +72,7 @@
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewHomeNome" />
+                app:layout_constraintTop_toBottomOf="@+id/recyViewHomeCategorias" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyViewHomeFavoritos"
@@ -60,28 +84,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/textViewHomeFavoritos"
                 tools:itemCount="20"
                 tools:listitem="@layout/item_home_favoritos" />
-
-            <TextView
-                android:id="@+id/textViewHomeCategorias"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/categorias"
-                android:textColor="@color/colorClara"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/recyViewHomeFavoritos" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyViewHomeCategorias"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewHomeCategorias"
-                tools:listitem="@layout/item_home_categorias"
-                tools:itemCount="50"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

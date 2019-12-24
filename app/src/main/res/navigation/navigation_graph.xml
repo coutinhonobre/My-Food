@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_graph"
-    app:startDestination="@id/inicialFragment">
+    app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/homeFragment"
@@ -37,18 +37,6 @@
         <action
             android:id="@+id/action_listaReceitasFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/inicialFragment"
-        android:name="com.github.coutinhonobre.myfood.presantation.inicial.InicialFragment"
-        android:label="cadastro_fragment"
-        tools:layout="@layout/inicial_fragment" >
-        <action
-            android:id="@+id/action_inicialFragment_to_cadastroFragment"
-            app:destination="@id/cadastroFragment" />
-        <action
-            android:id="@+id/action_inicialFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/cadastroFragment"

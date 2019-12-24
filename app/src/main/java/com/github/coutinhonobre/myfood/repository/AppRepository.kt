@@ -8,6 +8,7 @@ import com.github.coutinhonobre.myfood.api.modelos.Receitas
 import com.github.coutinhonobre.myfood.database.AppDataBase
 import com.github.coutinhonobre.myfood.model.Categoria
 import com.github.coutinhonobre.myfood.model.Receita
+import com.github.coutinhonobre.myfood.model.Usuario
 import org.jetbrains.anko.doAsync
 import retrofit2.Call
 import retrofit2.Callback
@@ -19,7 +20,17 @@ class AppRepository(val context: Context) {
 
     val database = AppDataBase.getInstance(context)
 
+    //Usuarios
+    fun getLogin(username: String, senha: String) = database.Dao().getAllLiveUsuarios(username, senha)
+    fun getLoginExists(username: String) = database.Dao().getAllLiveChecarUsuario(username)
+    fun getAllLiveChecarUsuarioID(username: Long) = database.Dao().getAllLiveChecarUsuarioID(username)
+    fun setLogin(usuario: Usuario){
+        doAsync {
+            database.Dao().addUsuario(usuario)
+        }
+    }
 
+    // Categoria e Receitas
     fun getAllCategorias() = database.Dao().getAllCategorias()
 
     fun getAllReceitas() = database.Dao().getAllLiveReceitas()

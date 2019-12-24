@@ -1,7 +1,14 @@
 package com.github.coutinhonobre.myfood.presantation.login
 
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
+import com.github.coutinhonobre.myfood.repository.AppRepository
 
-class LoginViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
+class LoginViewModel(application: Application) : AndroidViewModel(application) {
+
+    private val appRepository = AppRepository(application)
+
+    fun getLogin(username: String, senha: String) = appRepository.getLogin(username, senha)
+
+
 }

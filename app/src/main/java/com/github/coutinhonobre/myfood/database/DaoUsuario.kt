@@ -11,8 +11,13 @@ import com.github.coutinhonobre.myfood.model.Usuario
 interface DaoUsuario {
 
     @Query("select * from usuarios where username = :username and senha = :senha")
-    fun getAllLiveusuarios(username: String, senha: String): LiveData<List<Usuario>>
+    fun getAllLiveUsuarios(username: String, senha: String): LiveData<List<Usuario>>
 
+    @Query("select * from usuarios where username = :username")
+    fun getAllLiveChecarUsuario(username: String): LiveData<List<Usuario>>
+
+    @Query("select * from usuarios where id = :id")
+    fun getAllLiveChecarUsuarioID(id: Long): LiveData<List<Usuario>>
 
     @Insert
     fun addUsuario(usuario: Usuario)
