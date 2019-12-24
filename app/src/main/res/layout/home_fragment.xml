@@ -85,6 +85,17 @@
                 tools:itemCount="20"
                 tools:listitem="@layout/item_home_favoritos" />
 
+            <ImageView
+                android:id="@+id/imageViewHomeSettings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/ic_settings_black_24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.993"
+                app:layout_constraintStart_toEndOf="@+id/textViewHomeHello"
+                app:layout_constraintTop_toTopOf="parent" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>

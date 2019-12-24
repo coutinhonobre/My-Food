@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_homeFragment_to_listaReceitasFragment"
             app:destination="@id/listaReceitasFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_usuarioEditFragment"
+            app:destination="@id/usuarioEditFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
@@ -58,5 +61,14 @@
         <action
             android:id="@+id/action_loginFragment_to_cadastroFragment2"
             app:destination="@id/cadastroFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/usuarioEditFragment"
+        android:name="com.github.coutinhonobre.myfood.presantation.settings.UsuarioEditFragment"
+        android:label="usuario_edit_fragment"
+        tools:layout="@layout/usuario_edit_fragment" >
+        <action
+            android:id="@+id/action_usuarioEditFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
 </navigation>

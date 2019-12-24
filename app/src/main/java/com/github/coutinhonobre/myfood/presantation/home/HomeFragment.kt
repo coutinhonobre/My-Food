@@ -49,6 +49,16 @@ class HomeFragment : Fragment() {
             }
         })
 
+        imageViewHomeSettings.setOnClickListener {
+            val bundle = Bundle().apply {
+                putLong("idUsuario", idUsuario)
+            }
+            findNavController().navigate(
+                R.id.action_homeFragment_to_usuarioEditFragment,
+                bundle
+            )
+        }
+
     }
 
     private fun getFavoritos() {
