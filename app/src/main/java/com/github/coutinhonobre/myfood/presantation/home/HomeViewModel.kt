@@ -1,54 +1,29 @@
 package com.github.coutinhonobre.myfood.presantation.home
 
+import android.app.Application
+import android.util.Log
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.github.coutinhonobre.myfood.model.Categoria
 import com.github.coutinhonobre.myfood.model.Receita
+import com.github.coutinhonobre.myfood.repository.AppRepository
 
-class HomeViewModel : ViewModel() {
+class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val receitasFavoritas: MutableList<Receita> = mutableListOf()
-    val receitasFavoritasLiveData: MutableLiveData<List<Receita>> = MutableLiveData()
-
-    private val categorias: MutableList<Categoria> = mutableListOf()
-    val categoriasLiveData: MutableLiveData<List<Categoria>> = MutableLiveData()
+    private val appRepository = AppRepository(application)
 
 
-    fun getReceitasFavoritas() {
-
-        for (i in 1..15) {
-            var categoria = Categoria(
-                1, "Categoria", ""
-            )
-            var receita = Receita(
-                i.toLong(),
-                "Receita Teste",
-                "igredientes 1, igredientes2 ",
-                "como preparar",
-                "https://www.eucomosim.com/wp-content/uploads/2014/10/fc48ho050-02_xlg-e1412761851676-216x160.jpg",
-                3.6F,
-                false,
-                listOf(categoria)
-
-            )
-            receitasFavoritas.add(receita)
-        }
-
-        receitasFavoritasLiveData.value = receitasFavoritas
-
+    init {
+        appRepository.fetchDataReceitasFromServer()
+        appRepository.fetchDataCategoriasFromServer()
     }
 
-    fun getCategorias(){
 
-        for (i in 1..15){
-            var categoria = Categoria(
-                i.toLong(), "Categoria $i", "https://www.pizzatec.com.br/assets/uploads/gallery/images/2019/02/wesual-click-1151588-unsplash-1550257050.jpg"
-            )
-            categorias.add(categoria)
-        }
-        categoriasLiveData.value = categorias
+    fun getReceitasFavoritas() = appRepository.getAllReceitas()
 
-    }
+    fun getCategorias() = appRepository.getAllCategorias()
 
 
 }

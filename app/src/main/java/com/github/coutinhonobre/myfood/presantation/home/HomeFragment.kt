@@ -42,25 +42,23 @@ class HomeFragment : Fragment() {
     private fun getFavoritos() {
         recyViewHomeFavoritos.layoutManager =
             LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL, false)
-        viewModel.receitasFavoritasLiveData.observe(this, Observer {
+        viewModel.getReceitasFavoritas().observe(this, Observer {
             recyViewHomeFavoritos.adapter = HomeFavoritosAdapter(it) { receita ->
                 Log.i("RECEITA", receita.receita)
                 findNavController().navigate(R.id.action_homeFragment_to_detailFragment)
             }
         })
-        viewModel.getReceitasFavoritas()
     }
 
     private fun getCategorias() {
         recyViewHomeCategorias.layoutManager =
             LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL, false)
-        viewModel.categoriasLiveData.observe(this, Observer {
+        viewModel.getCategorias().observe(this, Observer {
             recyViewHomeCategorias.adapter = HomeCategoriasAdapter(it) { categoria ->
                 Log.i("RECEITA", categoria.descricao)
                 findNavController().navigate(R.id.action_homeFragment_to_listaReceitasFragment)
             }
         })
-        viewModel.getCategorias()
     }
 
 }
