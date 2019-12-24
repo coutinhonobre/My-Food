@@ -13,11 +13,15 @@ interface DaoReceita {
     @Query("select * from receitas")
     fun getAllLiveReceitas(): LiveData<List<Receita>>
 
+    @Query("select * from receitas where like = :like")
+    fun getAllLiveReceitasLike(like: Boolean): LiveData<List<Receita>>
+
     @Query("select * from receitas where id = :id")
     fun getAllLiveReceitasID(id: Long): LiveData<List<Receita>>
 
     @Query("select * from receitas where categoria_id = :categoriaId")
     fun getAllLiveReceitasCategoriaId(categoriaId: Long): LiveData<List<Receita>>
+
 
     @Query("select * from receitas where receita = :receita")
     fun getAllLiveReceitasDescricao(receita: String): List<Receita>

@@ -55,8 +55,13 @@ class HomeFragment : Fragment() {
             LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL, false)
         viewModel.getCategorias().observe(this, Observer {
             recyViewHomeCategorias.adapter = HomeCategoriasAdapter(it) { categoria ->
-                Log.i("RECEITA", categoria.descricao)
-                findNavController().navigate(R.id.action_homeFragment_to_listaReceitasFragment)
+                val bundle = Bundle().apply {
+                    putLong("id", categoria.id)
+                }
+                findNavController().navigate(
+                    R.id.action_homeFragment_to_listaReceitasFragment,
+                    bundle
+                )
             }
         })
     }

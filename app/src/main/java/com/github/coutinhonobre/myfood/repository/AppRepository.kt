@@ -24,6 +24,8 @@ class AppRepository(val context: Context) {
 
     fun getAllReceitas() = database.Dao().getAllLiveReceitas()
 
+    fun getAllReceitasLike() = database.Dao().getAllLiveReceitasLike(true)
+
     fun getAllReceitasPorCategoria(categoriaId: Long) =
         database.Dao().getAllLiveReceitasCategoriaId(categoriaId)
 

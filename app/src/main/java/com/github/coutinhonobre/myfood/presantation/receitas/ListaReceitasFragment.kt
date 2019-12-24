@@ -14,10 +14,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.github.coutinhonobre.myfood.R
 import com.github.coutinhonobre.myfood.common.ReceitasAdapter
+import com.github.coutinhonobre.myfood.model.Categoria
 import kotlinx.android.synthetic.main.lista_receitas_fragment.*
 
 class ListaReceitasFragment : Fragment() {
 
+    private var categoria: Long = 0
 
 
     private lateinit var viewModel: ListaReceitasViewModel
@@ -26,6 +28,10 @@ class ListaReceitasFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        categoria = arguments?.getLong("id")!!
+
+
         return inflater.inflate(R.layout.lista_receitas_fragment, container, false)
     }
 
@@ -35,13 +41,14 @@ class ListaReceitasFragment : Fragment() {
 
         recyclerViewLayoutListaReceitasPesquisa.layoutManager = LinearLayoutManager(this.context)
 
-        viewModel.receitaLiveData.observe(this, Observer {
+        viewModel.getReceitasCategoria(categoria).observe(this, Observer {
             recyclerViewLayoutListaReceitasPesquisa.adapter = ReceitasAdapter(it){ receita ->
                 findNavController().navigate(R.id.action_listaReceitasFragment_to_detailFragment)
             }
         })
 
-        viewModel.getReceitasCategoria(1)
+
+
 
 
         imageViewListaReceitasReturn.setOnClickListener {
@@ -49,7 +56,7 @@ class ListaReceitasFragment : Fragment() {
         }
 
         textEditTextListaReceitasPesquisa.addTextChangedListener {
-            viewModel.getReceitasNome(it.toString())
+
         }
     }
 

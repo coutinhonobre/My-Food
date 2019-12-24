@@ -21,7 +21,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     }
 
 
-    fun getReceitasFavoritas() = appRepository.getAllReceitas()
+    fun getReceitasFavoritas() = appRepository.getAllReceitasLike()
 
     fun getCategorias() = appRepository.getAllCategorias()
 
