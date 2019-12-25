@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 
 import com.github.coutinhonobre.myfood.R
+import com.github.coutinhonobre.myfood.model.Usuario
 import kotlinx.android.synthetic.main.usuario_edit_fragment.*
 
 class UsuarioEditFragment : Fragment() {
@@ -34,23 +35,35 @@ class UsuarioEditFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(UsuarioEditViewModel::class.java)
 
-        viewModel.getLoginID(idUsuario).observe(this, Observer {
-            it.let {
-                if (it.isNotEmpty()){
-                    Log.e("USUARIO1", it.first().username)
+        viewModel.getLogin(idUsuario).observe(this, Observer { usuarios ->
+            usuarios.let {
+                if (usuarios.isNotEmpty()) {
                     textInputEditUsuarioEditNome.setText(it.first().nome)
                     textInputEditUsuarioEditUsername.setText(it.first().username)
                     textInputEditUsuarioEditSenha.setText(it.first().senha)
                 }
-                Log.e("USUARIO11", it.toString())
             }
         })
+
 
         imageViewUsuarioEditClose.setOnClickListener {
             val bundle = Bundle().apply {
                 putLong("id", idUsuario)
             }
             findNavController().navigate(R.id.action_usuarioEditFragment_to_homeFragment, bundle)
+        }
+
+        buttonCadastroCadastro.setOnClickListener {
+
+            viewModel.updateUsuario(
+                Usuario(
+                    idUsuario,
+                    textInputEditUsuarioEditNome.text.toString(),
+                    textInputEditUsuarioEditUsername.text.toString(),
+                    textInputEditUsuarioEditSenha.text.toString()
+                )
+            )
+
         }
 
     }

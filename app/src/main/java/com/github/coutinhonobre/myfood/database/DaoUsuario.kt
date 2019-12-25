@@ -19,6 +19,9 @@ interface DaoUsuario {
     @Query("select * from usuarios where id = :id")
     fun getAllLiveChecarUsuarioID(id: Long): LiveData<List<Usuario>>
 
+    @Query("select * from usuarios")
+    fun getAllLiveChecarUsuario(): LiveData<List<Usuario>>
+
     @Insert
     fun addUsuario(usuario: Usuario)
 

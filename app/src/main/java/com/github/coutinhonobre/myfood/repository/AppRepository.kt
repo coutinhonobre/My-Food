@@ -23,10 +23,16 @@ class AppRepository(val context: Context) {
     //Usuarios
     fun getLogin(username: String, senha: String) = database.Dao().getAllLiveUsuarios(username, senha)
     fun getLoginExists(username: String) = database.Dao().getAllLiveChecarUsuario(username)
-    fun getAllLiveChecarUsuarioID(username: Long) = database.Dao().getAllLiveChecarUsuarioID(username)
+    fun getAllLiveChecarUsuario(usuario: Long) = database.Dao().getAllLiveChecarUsuarioID(usuario)
+    fun getAllLiveusuarios() = database.Dao().getAllLiveChecarUsuario()
     fun setLogin(usuario: Usuario){
         doAsync {
             database.Dao().addUsuario(usuario)
+        }
+    }
+    fun updateUsuario(usuario: Usuario){
+        doAsync {
+            database.Dao().updateUsuario(usuario)
         }
     }
 
