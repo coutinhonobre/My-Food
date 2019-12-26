@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 
@@ -41,6 +42,7 @@ class UsuarioEditFragment : Fragment() {
                     textInputEditUsuarioEditNome.setText(it.first().nome)
                     textInputEditUsuarioEditUsername.setText(it.first().username)
                     textInputEditUsuarioEditSenha.setText(it.first().senha)
+                    progressBarnEditUsuarioCadastro.visibility = View.GONE
                 }
             }
         })
@@ -53,7 +55,7 @@ class UsuarioEditFragment : Fragment() {
             findNavController().navigate(R.id.action_usuarioEditFragment_to_homeFragment, bundle)
         }
 
-        buttonCadastroCadastro.setOnClickListener {
+        buttonEditUsuarioCadastroEditar.setOnClickListener {
 
             viewModel.updateUsuario(
                 Usuario(
@@ -63,6 +65,10 @@ class UsuarioEditFragment : Fragment() {
                     textInputEditUsuarioEditSenha.text.toString()
                 )
             )
+
+            Toast.makeText(this.context, getString(R.string.editado_com_sucesso), Toast.LENGTH_LONG).show()
+
+            progressBarnEditUsuarioCadastro.visibility = View.VISIBLE
 
         }
 

@@ -1,102 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="10dp"
-    tools:context=".presantation.cadastro.CadastroFragment">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textViewCadastroAppName"
-        style="@style/LogoName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutCadastroNome"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCadastroAppName">
+        android:padding="10dp"
+        tools:context=".presantation.cadastro.CadastroFragment">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditCadastroNome"
+        <TextView
+            android:id="@+id/textViewCadastroAppName"
+            style="@style/LogoName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutCadastroNome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:hint="@string/nome" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginTop="25dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewCadastroAppName">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutCadastroUsername"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutCadastroNome">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textInputEditCadastroNome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="@string/nome" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditCadastroUsername"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutCadastroUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/username"
-            android:inputType="text" />
-    </com.google.android.material.textfield.TextInputLayout>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayoutCadastroNome">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutCadastroSenha"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutCadastroUsername">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textInputEditCadastroUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/username"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditCadastroSenha"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutCadastroSenha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/senha"
-            android:inputType="textPassword" />
-    </com.google.android.material.textfield.TextInputLayout>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayoutCadastroUsername">
 
-    <Button
-        android:id="@+id/buttonCadastroCadastro"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/colorWhite"
-        android:padding="20dp"
-        android:text="@string/cadastrar"
-        android:textColor="@color/colorPrimary"
-        android:textSize="24sp"
-        app:cornerRadius="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutCadastroSenha"
-        tools:layout_editor_absoluteX="10dp" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textInputEditCadastroSenha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/senha"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/textViewCadastroLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="login?"
-        android:textAlignment="viewEnd"
-        android:textColor="@color/colorPrimary"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonCadastroCadastro" />
+        <Button
+            android:id="@+id/buttonCadastroCadastro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorWhite"
+            android:padding="20dp"
+            android:text="@string/cadastrar"
+            android:textColor="@color/colorPrimary"
+            android:textSize="24sp"
+            app:cornerRadius="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayoutCadastroSenha"
+            tools:layout_editor_absoluteX="10dp" />
 
-    <ProgressBar
-        android:id="@+id/progressBarCadastro"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonCadastroCadastro" />
+        <TextView
+            android:id="@+id/textViewCadastroLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="login?"
+            android:textAlignment="viewEnd"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonCadastroCadastro" />
+
+        <ProgressBar
+            android:id="@+id/progressBarCadastro"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonCadastroCadastro" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

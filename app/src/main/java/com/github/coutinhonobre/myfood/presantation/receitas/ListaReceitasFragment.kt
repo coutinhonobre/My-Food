@@ -64,9 +64,6 @@ class ListaReceitasFragment : Fragment() {
             findNavController().navigate(R.id.action_listaReceitasFragment_to_homeFragment, bundle)
         }
 
-        textEditTextListaReceitasPesquisa.addTextChangedListener {
-
-        }
     }
 
 }

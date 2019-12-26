@@ -20,4 +20,5 @@
     <string name="cadastrado_realizado_com_sucesso">Cadastro realizado com sucesso!</string>
     <string name="usuario_ou_senha_incorretos">Usuario ou senha incorreta</string>
     <string name="editar">Editar</string>
+    <string name="editado_com_sucesso">Editado com sucesso</string>
 </resources>
